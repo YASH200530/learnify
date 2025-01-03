@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="first">
+        <h3><b>Sign up and start learning</b></h3>
+    </div>
+    
+      <div class="signup-container">
+        <h2>sign-up</h2>
+     <form action="http://localhost/PHP/Signup.php" method="post">
+        <input type="text" class="sign-up" name="username" placeholder="Username" required>
+        <input type="email" class="sign-up" name="email" placeholder="Email" required>
+         <input type="password" class="sign-up" name="password" placeholder="Password" required>
+         <a href="./main.html"><button type="submit" class="signup-button">login</button></a>
+     </form>
+
+      </div>
+    </div>
+
+      <script>
+        
+        function validateSignupForm(event) {
+           
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+           
+            if (username === "") {
+                alert("Please enter a username.");
+                event.preventDefault(); 
+                return false;
+            }
+
+            
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === "") {
+                alert("Please enter an email address.");
+                event.preventDefault(); 
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault(); 
+                return false;
+            }
+
+            
+            if (password === "") {
+                alert("Please enter a password.");
+                event.preventDefault(); 
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                event.preventDefault(); 
+                return false;
+            }
+
+          
+            return true;
+        }
+    </script>
+</body>
+</html>
